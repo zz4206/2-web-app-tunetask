@@ -6,12 +6,8 @@ import pymongo
 load_dotenv('./.env')
 
 def create_app():
-    """
-    Create and configure the Flask application.
-    returns: app: the Flask application object
-    """
-
     app = Flask(__name__)
+    
     @app.route('/')
     def show_home():
         # print("hello")
