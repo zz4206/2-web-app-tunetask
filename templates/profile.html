@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@{{ user }}</title>
+        <link
+          rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}"
+        />
+      </head>
+    <body>
+        <h1>@{{ user }}</h1>
+        {% for tunetask in collection%}
+        <div id="tunetask">
+            <h2>{{ tunetask['title']}}</h2>
+            <h3>Task List</h3>
+            {% for task in tunetask['task_list'] %}
+            <li>
+                {{ task }}
+            </li>
+            {% endfor %}
+            <h3>Playlist</h3>
+            {% for song in tunetask['play_list'] %}
+            <li>
+                {{ song }}
+            </li>
+            {% endfor %}
+            <!-- <a href="{{ url_for('edit', id=tunetask._id)}}">modify tunetask</a>
+            <a href="{{ url_for('delete', id=tunetask._id)}}">delete tunetask</a> -->
+        </div>
+        {% endfor %}
+    </body>
+</html>
