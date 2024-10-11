@@ -27,7 +27,6 @@ def create_app():
             print("MongoDB connection error:", e)
         return response # the return value is sent as the response to the web browser
     
-    
     @app.route('/profile/<user>')
     def show_profile(user):
         tune_tasks = list(db.tune_tasks.find({"created_by":user}))
@@ -37,7 +36,18 @@ def create_app():
         # return make_response("all good", 200)
         return render_template('profile.html', user=user, collection=tune_tasks)
     
+    @app.route('/search')
+    def show_search():
+        return render_template('search.html')
     
+    @app.route('/search', methods=["POST"])
+    def post_search():
+        user = request.form["user"]
+        tune_tasks= list(db.tune_tasks.find({"created_by":user}))
+        # return make_response("hello", 200)
+        if len(tune_tasks) == 0:
+            return make_response("user not found", 200)
+        return render_template('profile.html', user=user, collection=tune_tasks)
     return app
 
 if __name__ == "__main__":
