@@ -38,22 +38,29 @@ For busy individuals looking to streamline their daily routines, TuneTask is a m
    python -m venv venv
    
 3. **Activate your Virtual Environment**:
-   windows: venv\Scripts\activate\
-   macOS/Linux: source venv/bin/activate
+
+   - windows: venv\Scripts\activate\
+   
+   - macOS/Linux: source venv/bin/activate
 
 ### Step 2: Install Required Packages
-   
+   ```bash
    pip install -r requirements.txt
+   ```
 
 ### Step 3: Create a .env File
-   -  MONGO_URI=your_mongo_connection_string
-      MONGO_DBNAME=your_database_name
-      FLASK_PORT=3000  # Optional: Change the port if needed
-      
+   ```bash
+   MONGO_URI=your_mongo_connection_string
+   MONGO_DBNAME=your_database_name
+   FLASK_PORT=3000  # Optional: Change the port if needed
+   ```
+
    - Replace your_mongo_connection_string and your_database_name with your actual values.
 
 ### Step 5: Run The Application
-   - python app.py
+   ```bash
+   python app.py
+   ```
    
 
 ## Task boards
