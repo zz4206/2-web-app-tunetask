@@ -4,7 +4,7 @@ A little exercise to build a web application following an agile development proc
 
 ## Product vision statement
 
-See instructions. Delete this line and place the Product Vision Statement here.
+For busy individuals looking to streamline their daily routines, TuneTask is a mobile website that lets users create task-based playlists.
 
 ## User stories
 
