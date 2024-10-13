@@ -60,9 +60,14 @@ header {
     width: 60%;
     position: absolute;
     top: 30%;
-    left: 100%; 
+    left: 80%; 
     transform: translateX(-50%); 
     overflow: hidden;
+}
+
+.record img {
+    width: 100%;
+    animation: rotate 5s linear infinite;
 }
 
 .record-player {
@@ -85,4 +90,13 @@ header {
 footer {
     text-align: center;
     font-size: 1vh;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
