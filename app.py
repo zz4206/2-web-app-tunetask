@@ -48,7 +48,13 @@ def create_app():
         if len(tune_tasks) == 0:
             return make_response("user not found", 200)
         return render_template('profile.html', user=user, collection=tune_tasks)
+    
+    @app.route('/login', methods=["GET"])
+    def login():
+        return render_template('login.html')
+    
     return app
+
 
 if __name__ == "__main__":
     FLASK_PORT = os.getenv("FLASK_PORT", "3000")
