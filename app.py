@@ -47,6 +47,7 @@ def create_app():
     
     @app.route('/login', methods=["GET", "POST"])
     def login():
+        error = None
         if request.method == "POST":
             username = request.form["username"]
             password = request.form["password"]
@@ -59,12 +60,12 @@ def create_app():
                 if user_data["password"] == password:
                     return redirect(url_for('show_profile', user=username))
                 else:
-                    return "Invalid password, please try again.", 403
+                    error = "Invalid password, please try again."
             else:
-                return "User not found", 404
+                error = "User not found"
 
 
-        return render_template('login.html')
+        return render_template('login.html', error=error)
     
     return app
 

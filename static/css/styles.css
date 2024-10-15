@@ -150,6 +150,13 @@ input[type="password"] {
     background-color: rgb(235, 198, 235);
 }
 
+.error-message {
+    color: #d9534f;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
