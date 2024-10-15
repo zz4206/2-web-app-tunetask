@@ -72,6 +72,32 @@ def create_app():
 
         return render_template('login.html', error=error)
     
+    @app.route('/register', methods=["GET", "POST"])
+    def register():
+        error = None
+        if request.method == "POST":
+            name = request.form["name"]
+            username = request.form["username"]
+            password = request.form["password"]
+            confirm_password = request.form["confirm_password"]
+
+            if password != confirm_password:
+                error = "Passwords do not match. Please try again."
+            # check if the user already exists
+            elif db.users.find_one({"username": username}):
+                error = "Username already exists. Please choose a different one."
+            else:
+                # add new user into database
+                db.users.insert_one({
+                    "name": name,
+                    "username": username,
+                    "password": password
+                })
+                return redirect(url_for('login'))
+
+        return render_template('register.html', error=error)
+
+    
     return app
 
 

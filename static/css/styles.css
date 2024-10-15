@@ -157,6 +157,25 @@ input[type="password"] {
     font-size: 14px;
 }
 
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register-button {
+    background-color: transparent;
+    border: none;
+    color: #6c63ff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.register-button:hover {
+    color: #5751d9;
+}
+
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
