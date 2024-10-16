@@ -6,17 +6,17 @@
 <section>
     <h2>Create New Task</h2>
     <form method="POST" action="{{ url_for('newTask') }}">
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name" name="task_name" required>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
     
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea>
 
-        <label for="task">Task:</label>
-        <textarea id="task" name="task" required></textarea>
+        <label for="task_list">Task:</label>
+        <textarea id="task_list" name="task" required></textarea>
 
-        <label for="song_name">Song:</label>
-        <textarea id="song" name="song" required></textarea>
+        <label for="play_list">Song:</label>
+        <textarea id="play_list" name="play_list" required></textarea>
     
         <button type="submit">Add Task</button>
     </form>

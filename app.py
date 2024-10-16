@@ -108,13 +108,13 @@ def create_app():
         return render_template('login.html')
     
     @app.route('/profile/<user>/new_task', methods = ["GET", "POST"])
-    def newTask(user):
+    def new_task(user):
         if request.method == 'POST':
             # Get form data from the user
-            task_name = request.form.get('task_name')
+            title = request.form.get('title')
             description = request.form.get('description')
-            task = request.form.get('task')
-            song_name = request.form.get('song_name')
+            task_list = [request.form.get('task_list')]
+            play_list = [request.form.get('play_list')]
 
             if not task_name or not description:
                 flash("Task name and description are required!")
@@ -122,16 +122,16 @@ def create_app():
 
             task_data = {
                 'username': user,
-                'task_name': task_name,
+                'title': title,
                 'description': description,
-                'task': task,
-                'song_name': song_name,
+                'task_list': task_list,
+                'play_list': play_list,
             }
 
             mongo.db.tune_tasks.insert_one(task_data)
 
             flash('New task added successfully!')
-            return redirect(url_for('show_profile', user = user))
+            return redirect(url_for('show_profile', user = user, collection = tune_tasks))
         return render_template('new_task.html')
     return app
 
